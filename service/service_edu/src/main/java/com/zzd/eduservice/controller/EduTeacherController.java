@@ -27,7 +27,7 @@ import com.zzd.eduservice.service.EduTeacherService;
  */
 
 @RestController
-@RequestMapping("/eduservice/eduteacher")
+@RequestMapping("/eduservice/teacher")
 @Slf4j
 @Api("讲师的控制类")
 @CrossOrigin
@@ -39,9 +39,8 @@ public class EduTeacherController {
      * 列表
      */
     @ApiOperation("查询所有讲师")
-    @GetMapping("/list")
+    @GetMapping
     public R list(){
-        log.error("错误错误错误错误错误错错误错误错误");
         List<EduTeacherEntity> list = eduTeacherService.list();
         return R.ok(list);
 

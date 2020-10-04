@@ -2,7 +2,9 @@ package com.zzd.eduservice.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzd.eduservice.entity.EduChapterEntity;
+import com.zzd.eduservice.entity.vo.chapter.ChapterVo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,5 +16,6 @@ import java.util.Map;
  */
 public interface EduChapterService extends IService<EduChapterEntity> {
 
+    List<ChapterVo> getChapterVideo(String courseId);
 }
 

@@ -1,12 +1,10 @@
 package com.zzd.eduservice.controller;
 
-import java.util.Map;
+import com.baomidou.mybatisplus.extension.api.R;
+/*import com.zzd.eduservice.client.VodClient;*/
+import com.zzd.eduservice.client.VodClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.zzd.eduservice.entity.EduVideoEntity;
 import com.zzd.eduservice.service.EduVideoService;
@@ -21,59 +19,61 @@ import com.zzd.eduservice.service.EduVideoService;
  * @date 2020-09-02 22:02:58
  */
 @RestController
-@RequestMapping("eduservice/eduvideo")
+@CrossOrigin
+@RequestMapping("eduservice/video")
 public class EduVideoController {
     @Autowired
     private EduVideoService eduVideoService;
 
-    /**
-     * 列表
-     */
-    @RequestMapping("/list")
-    public String list(@RequestParam Map<String, Object> params){
-
-
-         return "ok";
-    }
-
-
+    @Autowired
+    private VodClient vodClient;
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
-    public String info(@PathVariable("id") String id){
+    @GetMapping("{videoId}")
+    public R info(@PathVariable("videoId") String videoId){
 
-
-        return "ok";
+        EduVideoEntity videoEntity = eduVideoService.getById(videoId);
+        return R.ok(videoEntity);
     }
 
     /**
      * 保存
      */
-    @RequestMapping("/save")
-    public String save(@RequestBody EduVideoEntity eduVideo){
+    @PostMapping
+    public R save(@RequestBody EduVideoEntity entity){
 
+        eduVideoService.save(entity);
+        System.out.println(entity);
 
-        return "ok";
+        return R.ok(null);
     }
 
     /**
      * 修改
      */
-    @RequestMapping("/update")
-    public String update(@RequestBody EduVideoEntity eduVideo){
+    @PutMapping
+    public R update(@RequestBody EduVideoEntity eduVideo){
 
-
-        return "ok";
+        eduVideoService.updateById(eduVideo);
+        return R.ok(null);
     }
 
     /**
      * 删除
      */
-    @RequestMapping("/delete")
-    public String delete(@RequestBody String[] ids){
+    @DeleteMapping("{id}")
+    public R delete(@PathVariable String id){
 
-        return "ok";
+        EduVideoEntity videoEntity = eduVideoService.getById(id);
+
+        String videoSourceId = videoEntity.getVideoSourceId();
+
+        if (videoSourceId != null) {
+            vodClient.removeVideo(videoSourceId);
+        }
+        eduVideoService.removeById(id);
+        return R.ok(null);
     }
 
 }

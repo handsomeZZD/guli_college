@@ -1,7 +1,6 @@
 package com.zzd.eduservice.entity;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,7 +21,7 @@ public class EduCourseDescriptionEntity implements Serializable {
 	/**
 	 * 课程ID
 	 */
-	@TableId
+	@TableId(type = IdType.INPUT)
 	private String id;
 	/**
 	 * 课程简介
@@ -31,10 +30,12 @@ public class EduCourseDescriptionEntity implements Serializable {
 	/**
 	 * 创建时间
 	 */
+	@TableField(fill = FieldFill.INSERT)
 	private Date gmtCreate;
 	/**
 	 * 更新时间
 	 */
+	@TableField(fill = FieldFill.INSERT_UPDATE)
 	private Date gmtModified;
 
 }

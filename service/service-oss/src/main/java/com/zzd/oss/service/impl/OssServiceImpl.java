@@ -48,7 +48,7 @@ public class OssServiceImpl implements OssService {
 
 
 
-        fileName = "/avatar/"+year+"/"+month+"/"+day+"/"+uuid+fileName;
+        fileName = "avatar/"+year+"/"+month+"/"+day+"/"+uuid+fileName;
 
 
         // 创建OSSClient实例。
@@ -58,7 +58,7 @@ public class OssServiceImpl implements OssService {
         try {
             InputStream inputStream = file.getInputStream();
             ossClient.putObject(bucketName,fileName, inputStream);
-            String url = "https://" + bucketName + "." + endpoint +  fileName;
+            String url = "https://" + bucketName + "." + endpoint +  "/"+fileName;
             return url;
         } catch (Exception e) {
             e.printStackTrace();

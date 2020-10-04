@@ -24,7 +24,7 @@ import java.util.Map;
 public class OssController {
     @Autowired
     private OssService ossService;
-    @PostMapping("")
+    @PostMapping
     public R uploadFile(MultipartFile file) {
 
        String url =  ossService.uploadFileAvatar(file);

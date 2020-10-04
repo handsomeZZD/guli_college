@@ -2,8 +2,9 @@ package com.zzd.eduservice.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzd.eduservice.entity.EduCourseEntity;
-
-import java.util.Map;
+import com.zzd.eduservice.entity.vo.CoursePublishVo;
+import com.zzd.eduservice.entity.vo.CourseVO;
+import com.zzd.eduservice.exception.GuliException;
 
 /**
  * 课程
@@ -14,5 +15,14 @@ import java.util.Map;
  */
 public interface EduCourseService extends IService<EduCourseEntity> {
 
+    EduCourseEntity addCourse(CourseVO course) throws GuliException;
+
+    CourseVO getCourseInfo(String id);
+
+    void updateCourse(CourseVO courseVO);
+
+    CoursePublishVo getCoursePublish(String courseId);
+
+    void removeCourse(String id);
 }
 

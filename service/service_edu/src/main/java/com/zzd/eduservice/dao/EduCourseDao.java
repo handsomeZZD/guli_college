@@ -2,6 +2,7 @@ package com.zzd.eduservice.dao;
 
 import com.zzd.eduservice.entity.EduCourseEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zzd.eduservice.entity.vo.CoursePublishVo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -13,5 +14,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface EduCourseDao extends BaseMapper<EduCourseEntity> {
-	
+	//获取发布课程前的信息
+	public CoursePublishVo getCoursePublish(String courseId);
 }

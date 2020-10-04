@@ -14,13 +14,38 @@
     <modules>
         <module>service_edu</module>
         <module>service-oss</module>
+        <module>service-vod</module>
+        <module>service-cms</module>
     </modules>
-
     <dependencies>
         <dependency>
             <groupId>com.zzd</groupId>
             <artifactId>service_base</artifactId>
             <version>0.0.1-SNAPSHOt</version>
+        </dependency>
+        <!--服务注册-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
+        <!--服务调用-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>2.2.3.RELEASE</version>
+        </dependency>
+        <!--负载均衡-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            <version>2.2.3.RELEASE</version>
+        </dependency>
+        <!--熔断器-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.3.RELEASE</version>
         </dependency>
     </dependencies>
 

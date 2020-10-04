@@ -1,16 +1,16 @@
 package com.zzd.eduservice.controller;
 
+import java.util.List;
 import java.util.Map;
+
+import com.baomidou.mybatisplus.extension.api.R;
+import com.zzd.eduservice.entity.vo.SubjectVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.zzd.eduservice.entity.EduSubjectEntity;
 import com.zzd.eduservice.service.EduSubjectService;
-
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -21,7 +21,8 @@ import com.zzd.eduservice.service.EduSubjectService;
  * @date 2020-09-02 22:02:58
  */
 @RestController
-@RequestMapping("eduservice/edusubject")
+@RequestMapping("eduservice/subject")
+@CrossOrigin
 public class EduSubjectController {
     @Autowired
     private EduSubjectService eduSubjectService;
@@ -29,18 +30,17 @@ public class EduSubjectController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
-    public String list(@RequestParam Map<String, Object> params){
-
-
-         return "ok";
+    @GetMapping("/tree")
+    public R list(){
+       List<SubjectVO> data =  eduSubjectService.getTree();
+        return R.ok(data);
     }
 
 
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     public String info(@PathVariable("id") String id){
 
 
@@ -50,11 +50,11 @@ public class EduSubjectController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
-    public String save(@RequestBody EduSubjectEntity eduSubject){
-
-
-        return "ok";
+    @PostMapping
+    public R save(MultipartFile file){
+        System.out.println("eduSubjectService"+ eduSubjectService);
+        eduSubjectService.saveSubject(file,eduSubjectService);
+        return R.ok(null);
     }
 
     /**

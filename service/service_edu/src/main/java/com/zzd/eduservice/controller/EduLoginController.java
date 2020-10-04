@@ -20,7 +20,7 @@ import java.util.HashMap;
 public class EduLoginController {
 
 
-    @PostMapping("/login")
+    @PostMapping()
     @ApiOperation("获取token值")
     public R login(){
         HashMap<String, Object> data = new HashMap<>();
@@ -28,7 +28,7 @@ public class EduLoginController {
        return R.ok(data);
     }
 
-    @GetMapping("/info")
+    @GetMapping()
     public R info(){
         HashMap<String, Object> data = new HashMap<>();
         data.put("roles","[admin]");
