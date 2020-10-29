@@ -44,18 +44,24 @@ public class EduCourseController {
 
     }
 
+   /* @GetMapping("{id}")
+    @ApiOperation("获取课程的信息，含课程描述")
+    public R info(@PathVariable String id){
 
-    /**
-     * 信息
-     */
-    @RequestMapping("/{id}")
+        EduCourseEntity entity = eduCourseService.getById(id);
+
+        return R.ok(entity);
+    }*/
+
+
+
+    @GetMapping("/{id}")
     @ApiOperation("获取课程的信息，含课程描述")
     public R info(@PathVariable("id") String id){
 
        CourseVO courseInfo = eduCourseService.getCourseInfo(id);
         return R.ok(courseInfo);
     }
-
 
     /**
      * 课程分页查询，

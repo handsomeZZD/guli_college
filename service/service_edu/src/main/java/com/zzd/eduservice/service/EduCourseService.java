@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzd.eduservice.entity.EduCourseEntity;
 import com.zzd.eduservice.entity.vo.CoursePublishVo;
 import com.zzd.eduservice.entity.vo.CourseVO;
+import com.zzd.eduservice.entity.vo.front.CourseWebVo;
 import com.zzd.eduservice.exception.GuliException;
 
 /**
@@ -24,5 +25,7 @@ public interface EduCourseService extends IService<EduCourseEntity> {
     CoursePublishVo getCoursePublish(String courseId);
 
     void removeCourse(String id);
+
+    CourseWebVo getWebCourse(String id);
 }
 

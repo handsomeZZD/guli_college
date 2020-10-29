@@ -31,7 +31,7 @@ public class EduSubjectController {
      * 列表
      */
     @GetMapping("/tree")
-    public R list(){
+    public R tree(){
        List<SubjectVO> data =  eduSubjectService.getTree();
         return R.ok(data);
     }

@@ -6,7 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/common/common_utils/common_utils.iml" filepath="$PROJECT_DIR$/common/common_utils/common_utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/guli_college.iml" filepath="$PROJECT_DIR$/.idea/guli_college.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-cms/service-cms.iml" filepath="$PROJECT_DIR$/service/service-cms/service-cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-msm/service-msm.iml" filepath="$PROJECT_DIR$/service/service-msm/service-msm.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-oss/service-oss.iml" filepath="$PROJECT_DIR$/service/service-oss/service-oss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-ucenter/service-ucenter.iml" filepath="$PROJECT_DIR$/service/service-ucenter/service-ucenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-vod/service-vod.iml" filepath="$PROJECT_DIR$/service/service-vod/service-vod.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/service_base/service_base.iml" filepath="$PROJECT_DIR$/common/service_base/service_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service_edu/service_edu.iml" filepath="$PROJECT_DIR$/service/service_edu/service_edu.iml" />
     </modules>

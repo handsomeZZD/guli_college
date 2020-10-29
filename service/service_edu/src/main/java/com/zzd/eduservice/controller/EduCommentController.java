@@ -1,16 +1,17 @@
 package com.zzd.eduservice.controller;
 
 import java.util.Map;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.api.R;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.zzd.eduservice.entity.EduCommentEntity;
 import com.zzd.eduservice.service.EduCommentService;
 
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -21,40 +22,32 @@ import com.zzd.eduservice.service.EduCommentService;
  * @date 2020-09-02 22:02:58
  */
 @RestController
-@RequestMapping("eduservice/educomment")
+@RequestMapping("eduservice/comment")
+@CrossOrigin
 public class EduCommentController {
     @Autowired
     private EduCommentService eduCommentService;
 
     /**
-     * 列表
+     * 分页查找课程评论
      */
-    @RequestMapping("/list")
-    public String list(@RequestParam Map<String, Object> params){
-
-
-         return "ok";
+    @GetMapping("{page}/{limit}")
+    public R page(@PathVariable Long page,@PathVariable Long limit ,EduCommentEntity commentEntity){
+        Page<EduCommentEntity> p = new Page(page,limit);
+        QueryWrapper<EduCommentEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id",commentEntity.getCourseId());
+        Page<EduCommentEntity> entityPage = eduCommentService.page(p, queryWrapper);
+        return R.ok(entityPage);
     }
 
 
     /**
-     * 信息
+     * 添加课程评论
      */
-    @RequestMapping("/info/{id}")
-    public String info(@PathVariable("id") String id){
-
-
-        return "ok";
-    }
-
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    public String save(@RequestBody EduCommentEntity eduComment){
-
-
-        return "ok";
+    @PostMapping
+    public R save(@RequestBody EduCommentEntity eduComment,HttpServletRequest request){
+        eduCommentService.saveComment(eduComment,request);
+        return R.ok(null);
     }
 
     /**

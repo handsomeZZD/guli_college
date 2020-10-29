@@ -5,6 +5,7 @@ import com.zzd.eduservice.dao.*;
 import com.zzd.eduservice.entity.*;
 import com.zzd.eduservice.entity.vo.CoursePublishVo;
 import com.zzd.eduservice.entity.vo.CourseVO;
+import com.zzd.eduservice.entity.vo.front.CourseWebVo;
 import com.zzd.eduservice.exception.GuliException;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -103,5 +104,10 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseDao, EduCourseEnt
         descriptionDao.deleteById(courseId);
         //删除课程
         baseMapper.deleteById(courseId);
+    }
+
+    @Override
+    public CourseWebVo getWebCourse(String id) {
+        return baseMapper.getWebCourse(id);
     }
 }

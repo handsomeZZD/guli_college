@@ -3,6 +3,7 @@ package com.zzd.eduservice.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzd.eduservice.entity.EduCommentEntity;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -14,5 +15,6 @@ import java.util.Map;
  */
 public interface EduCommentService extends IService<EduCommentEntity> {
 
+    void saveComment(EduCommentEntity eduComment, HttpServletRequest request);
 }
 

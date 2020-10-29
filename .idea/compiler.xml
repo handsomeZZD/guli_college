@@ -7,9 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="common_utils" />
-        <module name="service-oss" />
-        <module name="service_edu" />
+        <module name="service-cms" />
+        <module name="service-msm" />
+        <module name="service-vod" />
         <module name="service_base" />
+        <module name="service-ucenter" />
+        <module name="service_edu" />
+        <module name="service-oss" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,7 +21,11 @@
       <module name="common_utils" target="1.8" />
       <module name="guli_college" target="1.8" />
       <module name="service" target="1.8" />
+      <module name="service-cms" target="1.8" />
+      <module name="service-msm" target="1.8" />
       <module name="service-oss" target="1.8" />
+      <module name="service-ucenter" target="1.8" />
+      <module name="service-vod" target="1.8" />
       <module name="service_base" target="1.8" />
       <module name="service_edu" target="1.8" />
       <module name="untitled" target="1.5" />
@@ -29,7 +37,11 @@
       <module name="common_utils" options="-parameters" />
       <module name="guli_college" options="-parameters" />
       <module name="service" options="-parameters" />
+      <module name="service-cms" options="-parameters" />
+      <module name="service-msm" options="-parameters" />
       <module name="service-oss" options="-parameters" />
+      <module name="service-ucenter" options="-parameters" />
+      <module name="service-vod" options="-parameters" />
       <module name="service_base" options="-parameters" />
       <module name="service_edu" options="-parameters" />
     </option>

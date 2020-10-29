@@ -12,6 +12,12 @@
     <artifactId>service_base</artifactId>
 
     <dependencies>
+        <dependency>
+            <!--引入工具类-->
+            <groupId>com.zzd</groupId>
+            <artifactId>common_utils</artifactId>
+            <version>0.0.1-SNAPSHOt</version>
+        </dependency>
         <!--web依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

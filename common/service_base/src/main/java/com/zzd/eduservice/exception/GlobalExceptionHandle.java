@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Email 1396896729@qq.com
  * @description
  */
-@ControllerAdvice
 public class GlobalExceptionHandle {
 
 
