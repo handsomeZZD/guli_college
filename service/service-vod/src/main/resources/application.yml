@@ -11,5 +11,5 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-aliyun-accessKeyId: LTAI4GDVJBAGbNKzuB4zK1dT
-aliyun-accessKeySecret: XV6oreiX5mjgw508ChRsjQq6qguhW6
+aliyun-accessKeyId: ************************************
+aliyun-accessKeySecret: ************************************
